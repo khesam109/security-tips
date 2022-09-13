@@ -1,0 +1,12 @@
+* PEM or Privacy Enhanced Mail is a Base64 encoded DER certificate.
+* Many cryptography standards use ASN.1 to define their data structures, and Distinguished Encoding Rules (DER) to serialize those structures.
+* Because DER produces binary output, it can be challenging to transmit the resulting files through systems, like electronic mail, that only support ASCII.
+* The PEM format solves this problem by encoding the binary data using base64.
+* PEM certificates are frequently used for web servers as they can easily be translated into readable data using a simple text editor.
+* PEM also defines a one-line header, consisting of -----BEGIN, a label, and -----, and a one-line footer, consisting of -----END, a label, and -----. 
+* The label determines the type of message encoded. Common labels include CERTIFICATE, CERTIFICATE REQUEST, PRIVATE KEY and X509 CRL.
+* PEM data is commonly stored in files with a ".pem" suffix, a ".cer" or ".crt" suffix (for certificates), or a ".key" suffix (for public or private keys).
+* The label inside a PEM file represents the type of the data more accurately than the file suffix, since many different types of data can be saved in a ".pem" file.
+* A PEM file may contain multiple instances. For instance, an operating system might provide a file containing a list of trusted CA certificates, or a web server might be configured with a "chain" file containing an end-entity certificate plus a list of intermediate certificates.
+
+
