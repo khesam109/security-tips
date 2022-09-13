@@ -1,0 +1,4 @@
+*** cURL CheatSheet ***
+
+* 2-way ssl(note: If the mentioned files are in your working directory "./" is mandatory.):
+	curl -v --cert ./<client-cert>.cer --key ./<client-private-key>.key --cacert ./<chain>.pem -X POST <HOST> -H <HEADER> -d '<BODY>'

@@ -1,0 +1,19 @@
+*** OpenSSL CheatSheet ***
+
+* Export key from p12 keystore in PEM format with bag attributes:
+	openssl pkcs12 -in <keystore>.p12 -nocerts -out <private_key>.key -nodes
+	
+* Export key from p12 keystore in PEM format without bag attributes:
+	openssl pkcs12 -in <keystore>.p12 -nocerts -nodes | sed -ne '/-BEGIN PRIVATE KEY-/,/-END PRIVATE KEY-/p' > <private_key>.key
+	
+* Export cert from p12 keystore in PEM format with bag attributes:
+	openssl pkcs12 -in <keystore>.p12 -clcerts -nokeys -out <certificate>.cer
+	
+* Export cert from p12 keystore in PEM format without bag attributes:	
+	openssl pkcs12 -in <keystore>.p12 -clcerts -nokeys | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > <certificate>.cer
+
+* Export chain from p12 truststore in PEM format with bag attributes:
+	openssl pkcs12 -in <truststore>.p12 -cacerts -nokeys -chain -out <chain>.pem
+	
+* Export chain from p12 truststore in PEM format without bag attributes:	
+	openssl pkcs12 -in <truststore>.p12 -cacerts -nokeys -chain | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > <chain>.pem
